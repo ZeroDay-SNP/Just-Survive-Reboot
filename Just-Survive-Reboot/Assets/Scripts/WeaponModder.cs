@@ -7,7 +7,7 @@ public class WeaponModder : MonoBehaviour
     public Camera cam;
     Vector3 pos;
 
-    [field: SerializeField] private List<WeaponModPart> modOptions { get; }
+    [SerializeField] private List<WeaponModNode> nodes;
 
 
     // Start is called before the first frame update
@@ -22,7 +22,6 @@ public class WeaponModder : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         pos = Input.mousePosition;
         Ray ray = cam.ScreenPointToRay(pos);
-        Debug.DrawRay(ray.origin, ray.origin + ray.direction * 10, Color.red);
         Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
     }
 }
