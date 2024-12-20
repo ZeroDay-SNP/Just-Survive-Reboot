@@ -7,10 +7,28 @@ public class WeaponModNode : MonoBehaviour
 {
     [SerializeField] private List<WeaponModPart> modOptions;
     [SerializeField] private WeaponModPart selectedPart;
+    public AudioSource audioSrc;
+    public AudioClip selectSound;
 
     public WeaponModPart GetSelectedPart()
     {
         return selectedPart;
+    }
+
+    public void SetSelectedPart(string modName)
+    {
+        if(modName != selectedPart.GetModName())
+        {
+            audioSrc.PlayOneShot(selectSound);
+            foreach (WeaponModPart part in modOptions)
+            {
+                if (part.GetModName() == modName)
+                {
+                    selectedPart = part;
+                    break;
+                }
+            }
+        }
     }
 
     // Start is called before the first frame update
