@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd7b48671d3ac247a364a4ca7c686ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 2553901139702402523}
 --- !u!1 &131809000
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e1fab15fa88804ba31d45e6c969e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 5797968584685087662}
 --- !u!1 &822281345
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,7 +3137,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -5694,6 +5694,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3920961541864432772}
+  - {fileID: 7377200978158263665}
   - {fileID: 527474214755510006}
   - {fileID: 992941957228879328}
   - {fileID: 1141554683062337474}
@@ -5884,12 +5885,12 @@ Transform:
   m_GameObject: {fileID: 3183040912168667892}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8441576963906050910}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 7120560644972640927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &7400049671988543933
 MeshRenderer:
@@ -12297,7 +12298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &9153769935325850622
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12382,7 +12383,6 @@ SceneRoots:
   - {fileID: 8766312532215144181}
   - {fileID: 7897135673449093316}
   - {fileID: 2239720600909434876}
-  - {fileID: 7377200978158263665}
   - {fileID: 4654619003197726667}
   - {fileID: 2619297231748402479}
   - {fileID: 1753648064}
