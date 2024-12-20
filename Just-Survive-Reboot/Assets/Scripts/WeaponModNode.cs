@@ -28,7 +28,7 @@ public class WeaponModNode : MonoBehaviour
     /// <summary>
     /// Call this when a part is selected. The models will be shown and hidden according to the selection.
     /// </summary>
-    void RefreshNode()
+    public void RefreshNode()
     {
         foreach(WeaponModPart part in modOptions)
         {
@@ -44,5 +44,16 @@ public class WeaponModNode : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Getter for mod options
+    /// </summary>
+    /// <returns>
+    /// List of possible parts
+    /// </returns>
+    public List<WeaponModPart> GetModOptions()
+    {
+        return modOptions;
     }
 }

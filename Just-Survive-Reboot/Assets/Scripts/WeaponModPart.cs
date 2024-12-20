@@ -15,6 +15,11 @@ public class WeaponModPart : MonoBehaviour
     [field: SerializeField] private float equipMultiplier;  // multiply the equip speed
 
 
+    public string GetModName()
+    {
+        return modName;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
