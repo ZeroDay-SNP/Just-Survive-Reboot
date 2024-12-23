@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,8 +8,14 @@ public class WeaponModNode : MonoBehaviour
 {
     [SerializeField] private List<WeaponModPart> modOptions;
     [SerializeField] private WeaponModPart selectedPart;
+    [SerializeField] private TextMeshProUGUI modTitle;
+    [SerializeField] private TextMeshProUGUI modDesc;
+    [SerializeField] private TextMeshProUGUI modStats;
+    private bool isActive = false;
     public AudioSource audioSrc;
     public AudioClip selectSound;
+    public Material activeMaterial;
+    public Material inactiveMaterial;
 
     public WeaponModPart GetSelectedPart()
     {
@@ -31,6 +38,18 @@ public class WeaponModNode : MonoBehaviour
         }
     }
 
+    public void ActivateNode()
+    {
+        GetComponent<Renderer>().material = activeMaterial;
+        isActive = true;
+    }
+
+    public void DeactivateNode()
+    {
+        GetComponent<Renderer>().material = inactiveMaterial;
+        isActive = false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +60,13 @@ public class WeaponModNode : MonoBehaviour
     void Update()
     {
         RefreshNode();
+
+        if(isActive)
+        {
+            modTitle.text = GetSelectedPart().GetModName();
+            modDesc.text = GetSelectedPart().GetModDescription();
+            modStats.text = GetSelectedPart().GetModStatLines();
+        }
     }
 
     /// <summary>

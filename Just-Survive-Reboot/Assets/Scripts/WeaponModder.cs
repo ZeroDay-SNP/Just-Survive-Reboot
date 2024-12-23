@@ -21,6 +21,15 @@ public class WeaponModder : MonoBehaviour
 
     [SerializeField] private List<WeaponModNode> nodes;
 
+    [Header("Base Stats")]
+    [field: SerializeField] private float recoil;  
+    [field: SerializeField] private float fireRate;  
+    [field: SerializeField] private float accuracy;  
+    [field: SerializeField] private float ammoCount;   
+    [field: SerializeField] private float zoom;  
+    [field: SerializeField] private float reloadSpeed; 
+    [field: SerializeField] private float equipSpeed;  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +41,12 @@ public class WeaponModder : MonoBehaviour
     {
         if(Input.GetMouseButton(0))
         {
-            viewModel.transform.Rotate(new Vector3(0, -Input.GetAxis("Mouse X") * rotationSpeed, -Input.GetAxis("Mouse Y") * rotationSpeed), Space.World);
+            viewModel.transform.Rotate(new Vector3(0, -Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime, -Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime), Space.World);
+        }
 
+        if (Input.GetMouseButton(1))
+        {
+            viewModel.transform.rotation = Quaternion.identity;
         }
 
         Cursor.lockState = CursorLockMode.Confined;
@@ -52,7 +65,13 @@ public class WeaponModder : MonoBehaviour
                     if(newNode != selectedNode)
                     {
                         selectedNode = hit.collider.gameObject.GetComponent<WeaponModNode>();
-                        Debug.Log("Hit node");
+                        
+                        foreach (WeaponModNode node in nodes)
+                        {
+                            node.DeactivateNode();
+                        }
+                        selectedNode.ActivateNode();
+                        
                         List<TMP_Dropdown.OptionData> options = new List<TMP_Dropdown.OptionData>();
                         partList.ClearOptions();
                         int storedIndex = 0;
